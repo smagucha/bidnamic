@@ -1,0 +1,12 @@
+{% extends 'userdata/base.html'%}
+{%load static%}
+{%block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+<div class="container">
+    <form method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" name="submit">
+    </form>
+</div>
+{%endblock content%}

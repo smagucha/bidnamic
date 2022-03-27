@@ -1,0 +1,84 @@
+{% extends 'userdata/base.html'%}
+{%load static%}
+{%block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
+<a href="{%url 'insert'%}" class="btn btn-primary">Add user info</a>
+<a href="{% url 'logout' %}" >Log Out</a>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>
+                    title
+                </th>
+                <th>
+                    firstname
+                </th>
+                <th>
+                   surname
+                </th>
+                <th>
+                    date of birth
+                </th>
+                <th>
+                   company name
+                </th>
+                <th>
+                    address
+                </th>
+                <th>
+                    telephone
+                </th>
+                <th>
+                    binding setting
+                </th>
+                <th>
+                    google ads account id
+                </th>
+                <th>
+                    update
+                </th>
+                <th>
+                    delete
+                </th>
+            </tr>
+            {%for data in data%}
+            <tr>
+                <td>
+                    {{data.title}}
+                </td>
+                <td>
+                    {{data.firstname}}
+                </td>
+                <td>
+                    {{data.surname}}
+                </td>
+                <td>
+                    {{data.date_of_birth}}
+                </td>
+                <td>
+                    {{data.company_name}}
+                </td>
+                <td>
+                    {{data.address}}
+                </td>
+                <td>
+                    {{data.telephone}}
+                </td>
+                <td>
+                    {{data.bidding_setting}}
+                </td>
+                <td>
+                    {{data.google_ads_account_id}}
+                </td>
+                <td>
+                    <a href="{% url 'update-userinfo' data.id%}"  class="btn btn-primary">update</a>
+                </td>
+                 <td>
+                    <a href="{% url 'delete-userinfo' data.id%}"  class="btn btn-danger">delete</a>
+                </td>
+            </tr>
+            {%endfor%}
+        </table>
+        </div>
+
+{%endblock content%}
